@@ -168,10 +168,10 @@ td .options-h, td .options-v { margin: 0; }
 .ui-slider .ui-slider-handle { height: 0.9em; width: 0.9em; }
 .yellow { color: #cccc33; }
 
-#label-yellow { color: #cccc33; }
-#label-green { color: #60c660; }
-#label-blue { color: #7575db; }
-#label-purple { color: #cc66cc; }
-#label-red { color: #d73e3e; }
+.label-yellow { color: #cccc33; }
+.label-green { color: #60c660; }
+.label-blue { color: #7575db; }
+.label-purple { color: #cc66cc; }
+.label-red { color: #d73e3e; }
 
 #resultCount { float: right; font-weight: bold; font-size: 15px; margin-top: 8px; }

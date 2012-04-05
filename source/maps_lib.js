@@ -35,17 +35,10 @@ function initialize() {
 
   $("#ddlRadius").val("805");
   
-  $("#cbResult1").attr("checked", "checked");
-  $("#cbResult2").attr("checked", "checked");
-  $("#cbResult3").attr("checked", "checked");
-  $("#cbResult4").attr("checked", "checked");
-  //$("#cbResult5").attr("checked", "checked");
-  
-  //$("#cbRisk1").attr("checked", "checked");
-  //$("#cbRisk2").attr("checked", "checked");
-  //$("#cbRisk3").attr("checked", "checked");
+  $("#cbResult3").attr("checked", "checked"); //default view shows only failed
   
   searchrecords = null;
+  $("#txtSearchName").val("");
   $("#txtSearchAddress").val("");
   doSearch();
 }
@@ -108,8 +101,8 @@ function doSearch()
 		searchType += "3,";
   if (result4)
 		searchType += "4,";
-  if (result5)
-		searchType += "5,";
+  //if (result5)
+	//	searchType += "5,";
 
   searchStr += " AND " + searchType.slice(0, searchType.length - 1) + ")";
   
@@ -249,7 +242,7 @@ function getFTQuery(sql) {
 function displayCount(searchStr) {
   //set the query using the parameter
   searchStr = searchStr.replace("SELECT Location ","SELECT Count() ");
-  //console.log(searchStr);
+  console.log(searchStr);
   //set the callback function
   getFTQuery(searchStr).send(displaySearchCount);
 }
