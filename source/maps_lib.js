@@ -39,7 +39,7 @@ function initialize() {
   $("#cbResult2").attr("checked", "checked");
   $("#cbResult3").attr("checked", "checked");
   $("#cbResult4").attr("checked", "checked");
-  $("#cbResult5").attr("checked", "checked");
+  //$("#cbResult5").attr("checked", "checked");
   
   //$("#cbRisk1").attr("checked", "checked");
   //$("#cbRisk2").attr("checked", "checked");
@@ -90,7 +90,7 @@ function doSearch()
 	var result2 = $("#cbResult2").is(':checked');
 	var result3 = $("#cbResult3").is(':checked');
 	var result4 = $("#cbResult4").is(':checked');
-	var result5 = $("#cbResult5").is(':checked');
+	//var result5 = $("#cbResult5").is(':checked');
 	
 	//var risk1 = $("#cbRisk1").is(':checked');
 	//var risk2 = $("#cbRisk2").is(':checked');
