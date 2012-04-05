@@ -8,11 +8,11 @@ var geocoder;
 var addrMarker;
 var addrMarkerImage = 'http://derekeder.com/images/icons/blue-pushpin.png';
 
-var fusionTableId = 2086698; //replace this with the ID of your fusion table
+var fusionTableId = 3443286; //replace this with the ID of your fusion table
 
 var searchRadius = 805; //in meters ~ 1/2 mile
-var recordName = "result";
-var recordNamePlural = "results";
+var recordName = "inspection";
+var recordNamePlural = "inspections";
 var searchrecords;
 
 var searchStr;
@@ -21,6 +21,7 @@ var searchRadiusCircle;
 google.load('visualization', '1', {}); //used for custom SQL call to get count
 
 function initialize() {
+  initializeDateSlider();
   $( "#resultCount" ).html("");
 
 	geocoder = new google.maps.Geocoder();
@@ -34,14 +35,50 @@ function initialize() {
 
   $("#ddlRadius").val("805");
   
-  $("#cbType1").attr("checked", "checked");
-  $("#cbType2").attr("checked", "checked");
-  $("#cbType3").attr("checked", "checked");
+  $("#cbResult1").attr("checked", "checked");
+  $("#cbResult2").attr("checked", "checked");
+  $("#cbResult3").attr("checked", "checked");
+  $("#cbResult4").attr("checked", "checked");
+  $("#cbResult5").attr("checked", "checked");
+  
+  //$("#cbRisk1").attr("checked", "checked");
+  //$("#cbRisk2").attr("checked", "checked");
+  //$("#cbRisk3").attr("checked", "checked");
   
   searchrecords = null;
   $("#txtSearchAddress").val("");
   doSearch();
 }
+
+function initializeDateSlider() {
+	var minDate = new Date(2010, 1-1, 1);
+    var maxDate = new Date();
+    var initialStartDate = new Date();
+    initialStartDate.setDate(maxDate.getDate() - 90);
+    $('#minDate').html($.datepicker.formatDate('M yy', minDate));
+    $('#maxDate').html($.datepicker.formatDate('M yy', maxDate));
+    
+    $('#startDate').html($.datepicker.formatDate('mm/dd/yy', initialStartDate));
+    $('#endDate').html($.datepicker.formatDate('mm/dd/yy', maxDate));
+    
+    $('#date-range').slider({
+    	range: true,
+    	step: 30,
+    	values: [ Math.floor((initialStartDate.getTime() - minDate.getTime()) / 86400000), Math.floor((maxDate.getTime() - minDate.getTime()) / 86400000) ],
+        max: Math.floor((maxDate.getTime() - minDate.getTime()) / 86400000),
+        slide: function(event, ui) {
+            var date = new Date(minDate.getTime());
+            date.setDate(date.getDate() + ui.values[0]);
+            $('#startDate').html($.datepicker.formatDate('mm/dd/yy', date));
+            date = new Date(minDate.getTime());
+            date.setDate(date.getDate() + ui.values[1]);
+            $('#endDate').html($.datepicker.formatDate('mm/dd/yy', date));
+        },
+        stop: function(event, ui) {
+        	doSearch();
+        }
+    });
+  }
 
 function doSearch() 
 {
@@ -49,27 +86,57 @@ function doSearch()
 	var address = $("#txtSearchAddress").val();
 	searchRadius = $("#ddlRadius").val();
 	
-	var type1 = $("#cbType1").is(':checked');
-	var type2 = $("#cbType2").is(':checked');
-	var type3 = $("#cbType3").is(':checked');
+	var result1 = $("#cbResult1").is(':checked');
+	var result2 = $("#cbResult2").is(':checked');
+	var result3 = $("#cbResult3").is(':checked');
+	var result4 = $("#cbResult4").is(':checked');
+	var result5 = $("#cbResult5").is(':checked');
 	
-	searchStr = "SELECT geometry FROM " + fusionTableId + " WHERE geometry not equal to ''";
+	//var risk1 = $("#cbRisk1").is(':checked');
+	//var risk2 = $("#cbRisk2").is(':checked');
+	//var risk3 = $("#cbRisk3").is(':checked');
+	
+	searchStr = "SELECT Location FROM " + fusionTableId + " WHERE Location not equal to ''";
 	
 	//-----filter by type-------
-	//remove this if you don't have any types to filter
-	
-	//best way to filter results by a type is to create a 'type' column and assign each row a number (strings work as well, but numbers are faster). then we can use the 'IN' operator and return all that are selected
-	var searchType = "type IN (-1,";
-      if (type1) //drop-off center
+	var searchType = "'Results' IN (-1,";
+  if (result1)
 		searchType += "1,";
-	if (type2) //private
+	if (result2)
 		searchType += "2,";
-	if (type3) //hazardous waste site
+	if (result3)
+		searchType += "3,";
+  if (result4)
+		searchType += "4,";
+  if (result5)
+		searchType += "5,";
+
+  searchStr += " AND " + searchType.slice(0, searchType.length - 1) + ")";
+  
+  /*
+//-----filter by type-------
+	var searchType = "'Risk' IN (-1,";
+  if (risk1)
+		searchType += "1,";
+	if (risk2)
+		searchType += "2,";
+	if (risk3)
 		searchType += "3,";
 
   searchStr += " AND " + searchType.slice(0, searchType.length - 1) + ")";
-	
-	//-------end of filter by type code--------
+*/
+  
+  //date range
+  searchStr += " AND 'Inspection Date' >= '" + $('#startDate').html() + "'";
+  searchStr += " AND 'Inspection Date' <= '" + $('#endDate').html() + "'";
+  
+  //business name
+  var name = $("#txtSearchName").val();
+  
+  if (name != "") {
+    name = name.replace("'", "\\'");
+		searchStr += " AND 'DBA Name' contains ignoring case '" + name + "'";
+  }
 	
 	// because the geocode function does a callback, we have to handle it in both cases - when they search for and address and when they dont
 	if (address != "") {
@@ -91,7 +158,7 @@ function doSearch()
   			});
   			drawSearchRadiusCircle(results[0].geometry.location);
   			
-  			searchStr += " AND ST_INTERSECTS(geometry, CIRCLE(LATLNG" + results[0].geometry.location.toString() + "," + searchRadius + "))";
+  			searchStr += " AND ST_INTERSECTS(Location, CIRCLE(LATLNG" + results[0].geometry.location.toString() + "," + searchRadius + "))";
   			
   			//get using all filters
   			//console.log(searchStr);
@@ -180,8 +247,8 @@ function getFTQuery(sql) {
 
 function displayCount(searchStr) {
   //set the query using the parameter
-  searchStr = searchStr.replace("SELECT geometry ","SELECT Count() ");
-  
+  searchStr = searchStr.replace("SELECT Location ","SELECT Count() ");
+  //console.log(searchStr);
   //set the callback function
   getFTQuery(searchStr).send(displaySearchCount);
 }
