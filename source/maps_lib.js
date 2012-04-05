@@ -249,7 +249,7 @@ function getFTQuery(sql) {
 function displayCount(searchStr) {
   //set the query using the parameter
   searchStr = searchStr.replace("SELECT Location ","SELECT Count() ");
-  console.log(searchStr);
+  //console.log(searchStr);
   //set the callback function
   getFTQuery(searchStr).send(displaySearchCount);
 }
