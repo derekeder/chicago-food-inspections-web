@@ -35,7 +35,10 @@ function initialize() {
 
   $("#ddlRadius").val("805");
   
+  $("#cbResult1").attr("checked", ""); 
+  $("#cbResult2").attr("checked", ""); 
   $("#cbResult3").attr("checked", "checked"); //default view shows only failed
+  $("#cbResult4").attr("checked", "");
   
   searchrecords = null;
   $("#txtSearchName").val("");
@@ -83,11 +86,6 @@ function doSearch()
 	var result2 = $("#cbResult2").is(':checked');
 	var result3 = $("#cbResult3").is(':checked');
 	var result4 = $("#cbResult4").is(':checked');
-	//var result5 = $("#cbResult5").is(':checked');
-	
-	//var risk1 = $("#cbRisk1").is(':checked');
-	//var risk2 = $("#cbRisk2").is(':checked');
-	//var risk3 = $("#cbRisk3").is(':checked');
 	
 	searchStr = "SELECT Location FROM " + fusionTableId + " WHERE Location not equal to ''";
 	
@@ -101,23 +99,8 @@ function doSearch()
 		searchType += "3,";
   if (result4)
 		searchType += "4,";
-  //if (result5)
-	//	searchType += "5,";
 
   searchStr += " AND " + searchType.slice(0, searchType.length - 1) + ")";
-  
-  /*
-//-----filter by type-------
-	var searchType = "'Risk' IN (-1,";
-  if (risk1)
-		searchType += "1,";
-	if (risk2)
-		searchType += "2,";
-	if (risk3)
-		searchType += "3,";
-
-  searchStr += " AND " + searchType.slice(0, searchType.length - 1) + ")";
-*/
   
   //date range
   searchStr += " AND 'Inspection Date' >= '" + $('#startDate').html() + "'";
@@ -128,7 +111,7 @@ function doSearch()
   
   if (name != "") {
     name = name.replace("'", "\\'");
-		searchStr += " AND 'DBA Name' contains ignoring case '" + name + "'";
+		searchStr += " AND 'AKA Name' contains ignoring case '" + name + "'";
   }
 	
 	// because the geocode function does a callback, we have to handle it in both cases - when they search for and address and when they dont
