@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>About - Chicago Food Inspections</title>
+	<link href='styles/map.css' media='all' rel='stylesheet' type='text/css' /> 
+	<script src="/source/analytics_lib.js" type="text/javascript"></script>
+</head>
+<body>
+	<div id="page"> 
+		<div class='content-simple'>
+		  <ul id='header-nav'>
+				<li><a href="index.html">Home</a></li>
+				<li><a href='about.html'>About</a></li>
+			</ul>
+			<a href='index.html'><h1>Chicago Food Inspections</h1></a>	
+
+			<hr />
+			<h1>About Chicago Food Inspections</h1>
+			
+			<ul id="faq">
+	          <li><a href="#what-do-these-inspection-results-mean">What do these inspection results mean?</a></li>
+	          <li><a href="#why-did-you-make-it">Why did you make it?</a></li>
+	          <li><a href="#where-did-you-get-your-data-from">Where did you get your data from?</a></li>
+	          <li><a href="#what-did-you-use-to-build-it">What did you use to build it?</a></li>
+	        </ul>
+			
+			<h2 id="what-do-these-inspection-results-mean">What do these inspection results mean?</h2>
+			<p>Establishments that are inspected can pass, pass with conditions or fail.</p>
+
+      <ul>
+        <li>A <strong>pass</strong> is given if the establishment meets minimum city requirements and doesn't have serious or critical violations present during the inspection.</li>
+        <li>A <strong>pass with conditions</strong> is given if the establishment has serious or critical violations that are corrected during the inspection or the certified food service sanitation manager isn't present during the inspection. (The manager is someone who works for the restaurant and oversees the food-handling process, to make sure food is handled to prevent the occurrence of food-borne illness. The manager's certification must be prominently posted).</li>
+        <li><p>A <strong>fail</strong> is given if an establishment has serious violations that can't be fixed during the inspection and remain uncorrected during a re-inspection. See more below about serious violations. A fail also occurs when an establishment has critical violations that can't be corrected during inspection. In this situation, the establishment will have its license suspended until it passes a reinspection.</p>
+        </li>
+      </ul>
+      <p>Violations are marked as "serious" if they will likely create imminent health hazards if they aren't corrected within a timeframe provided by the health department. This includes instances when restaurants improperly thaw potentially hazardous food or when toilet rooms are not enclosed or clean. If serious violations aren't fixed in the designated timeframe, the violations become "critical," and the establishment will receive a citation to close.</p>
+      
+      <p>A violation is deemed "critical" if it creates an imminent health hazard that can't be corrected before the inspection is over. Examples include evidence of rodent or insect infestation or employees who are not washing their hands.</p>
+      
+      <p>Generally speaking, inspectors focus on food-handling practices, product temperatures, server hygiene, facility maintenance and pest control. Inspections usually occur every six months.</p>
+      
+      <p>For more information, see the ordinances under which the department operates: <a href="http://egov.cityofchicago.org/webportal/COCWebPortal/COC_ATTACH/COCFoodCodes.pdf">City of Chicago's Municipal Code, chapters 4-8, 7-38, 7-40, and 7-42</a> and the <a href="http://egov.cityofchicago.org/webportal/COCWebPortal/COC_ATTACH/BoHFoodRegs.pdf">Chicago Board of Health Rules and Regulations</a>.</p>
+      
+      <p>Thanks to <a href='http://chicago.everyblock.com/restaurant-inspections/'>Everyblock</a> for summarizing this info.</p>
+					
+			<h2 id="why-did-you-make-it">Why did you make it?</h2>
+			<p>Food inspections are pretty interesting. It's also good to know what restaurants have failed. Plus, I like to make maps.</p>
+			<h2 id="where-did-you-get-your-data-from">Where did you get your data from?</h2>
+			<p>The data comes from Chicago's <a href='https://webapps.cityofchicago.org/healthinspection/General_Info.jsp'>Department of Public Health's Food Protection Program</a> inspections which can be found: </p>
+			
+			<ul>
+			 <li><a href='https://data.cityofchicago.org/Health-Human-Services/Food-Inspections/4ijn-s7e5'>Food Inspections - City of Chicago Data Portal</a></li>
+			 <li><a href='http://www.google.com/fusiontables/DataSource?dsrcid=3443286'>CSV data in Fusion Tables</a></li>
+			</ul>
+			
+			<h2 id="what-did-you-use-to-build-it">What did you use to build it?</h2>
+			<p>This site is built with HTML, CSS, Javascript and Google's Fusion Tables and Maps API. The data is stored in Fusion Tables and is updated every night by a <a href='https://github.com/derekeder/Socrata-to-FusionTables'>PHP script I wrote</a> to import the data directly from the <a href='http://data.cityofchicago.org/'>City of Chicago Data Portal</a>.</p>
+			
+			<p>Technologies used:</p>
+			<ul>
+				<li><a href='http://jquery.com'>jQuery</a></li>
+				<li><a href='http://code.google.com/apis/maps/documentation/javascript/'>Google Maps API V3</a></li> 
+				<li><a href='http://www.google.com/fusiontables'>Google Fusion Tables</a></li>
+			</ul> 
+			
+			<p>If you are interested, all the code for this project is up on <a href='http://github.com'>github</a>:</p>
+			<ul>
+				<li><a href='https://github.com/derekeder/chicago-food-inspections-web'>Chicago Food Inspections</a> (this site)</li>
+				<li><a href='https://github.com/derekeder/chicago-food-inspections-import'>Socrata to Fusion Tables script</a></li> 				</ul>
+				
+		<hr />
+		<p class='mute'>A project by <a href='http://derekeder.com'>Derek Eder</a></p>	
+		</div>
+	</div>
+</body>
+</html>

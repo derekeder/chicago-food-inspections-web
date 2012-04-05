@@ -91,8 +91,9 @@ ul.c2l, ul.c2r { list-style: none; margin-left: 0; }
 .content-home h1 { width: 100%; }
 .home-left { float: left; width: 180px; padding: 0 5px; }
 .home-right { float: right; width: 500px; }
-.content-simple { margin: auto; width: 700px; } 
+.content-simple { margin: auto; width: 700px; padding-bottom: 20px;} 
 .content-simple  p { margin-top: .25em; }
+.content-simple li { margin-left: 2em; }
 
 	/* Full layout (no secondary content) */
 	.full .content { background-image: none; }
@@ -102,6 +103,10 @@ ul.c2l, ul.c2r { list-style: none; margin-left: 0; }
 #map_canvas { height: 100%; width:100%; }
 #map_canvas img { float: right; padding-bottom: 8px; }
 #map_canvas h5 { clear: both; }
+
+/* Header nav */
+#header-nav { float: right; background: none; margin-bottom: 0.3em; padding: 0; margin: 0; list-style: none; }
+#header-nav li { float: left; margin: 0 0 0 1em; white-space: nowrap; text-align: center; font-size: 15px; color: #4b58a6;  }
 
 /* Muted text */
 .mute { color: #77787b; font-size: 12px; }
