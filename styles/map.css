@@ -175,8 +175,8 @@ td .options-h, td .options-v { margin: 0; }
 .label-red { color: #d73e3e; }
 
 .violation-critical { color: #CC0000; }
-.violation-serious { color: #CC3300; }
-.violation-minor { color: #CC6600; }
+.violation-serious { color: #CC6600; }
+.violation-minor { color: #CCaa00; }
 
 #resultCount { float: right; font-weight: bold; font-size: 15px; margin-top: 8px; }
 
