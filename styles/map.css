@@ -174,4 +174,22 @@ td .options-h, td .options-v { margin: 0; }
 .label-purple { color: #cc66cc; }
 .label-red { color: #d73e3e; }
 
+.violation-critical { color: #d73e3e; }
+.violation-serious { color: #cccc33; }
+.violation-minor { color: #60c660; }
+
 #resultCount { float: right; font-weight: bold; font-size: 15px; margin-top: 8px; }
+
+/* Tables */
+.data { width: 100%; font-size: 15px; padding-bottom: 15px; }
+.data td, .data th { border: 1px solid #ccc; padding: 0.5em; }
+.data th { background: #e9f0f8; font-weight: bold; }
+.data thead th { border: 1px solid #ccc; }
+.data th { background-position: 0.5em 50%; background-repeat: no-repeat; cursor: pointer; padding: 0.5em; }
+.data th.sorting { color: #366CB3; }
+.data th.sorting_asc { background-image: url(images/arrow-secondary-up.gif); color: #366CB3; padding-left: 20px; }
+.data th.sorting:hover { text-decoration: underline; }
+.data th.sorting_desc { background-image: url(images/arrow-secondary-down.gif); color: #366CB3; padding-left: 20px; }
+.dataTables_filter { font-size: 1.2em; margin-bottom: 10px; }
+.dataTables_filter input { padding: 0.2em; }
+tr.alt, tr.even { background: #FAFAFF; }

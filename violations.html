@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Violations - Chicago Food Inspections</title>
+	<link href='styles/map.css' media='all' rel='stylesheet' type='text/css' /> 
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script> 
+	<script src="/source/analytics_lib.js" type="text/javascript"></script>
+	<script src="source/jquery.dataTables.min.js" type="text/javascript"></script>
+	
+	<script type="text/javascript">
+	    $(function(){
+	      if (window.location.hash.length > 0) {
+  	      var sel = $(''+window.location.hash);
+  	      console.log(sel);
+  	      sel.parent().children().attr('style','background: #ddd;');
+  	    }
+	    
+	      $(".data").dataTable({
+	        "aaSorting": [[0, "asc"]],
+	        "aoColumns": [
+	          null,
+	          null,
+	          null
+	        ],
+	        "bFilter": true,
+	        "bInfo": false,
+	        "bPaginate": false
+	      });
+	    });
+  </script>
+</head>
+<body>
+	<div id="page"> 
+		<div class='content-simple'>
+		  <ul id='header-nav'>
+				<li><a href="index.html">Home</a></li>
+				<li><a href='about.html'>About</a></li>
+				<li><a href='violations.html'>Violations</a></li>
+			</ul>
+			<a href='index.html'><h1>Chicago Food Inspections</h1></a>	
+
+			<hr />
+			<h1>Violations</h1>
+			
+			<p>When a Food Inspector visits a location, they will evaluate it based on the following criteria. You can <a href='https://webapps.cityofchicago.org/healthinspection/Inspections.jsp'>see the list on the City of Chicago website</a>.</p>
+			<table class='data'>
+			 <thead>
+        <tr> 
+          <th>Violation&nbsp;#</th>
+          <th>Health Standard to Be Met</th>
+          <th>Violation&nbsp;Type</th>
+        </tr>
+      </thead>
+  <tr>  
+    <td id="violation-1">1</td>
+          <td> 
+            <ul>
+              <li>All 
+                food shall be from sources approved by health authorities and 
+                safe for human consumption.</li>
+              <li>Shellfish 
+                shall be obtained from an approved source and kept in their original 
+                package until sold.</li>
+              <li>Molluscan 
+                shell stock shall be obtained in containers bearing legible source 
+                identification tags or labels.</li>
+            </ul></td>
+    <td><strong class='label-red'>Critical</strong></td>
+  </tr>
+  <tr> 
+          
+    <td id="violation-2">2</td>
+          <td> 
+            <ul>
+              <li>All 
+                food establishments that prepare, sell, or store hot food shall 
+                have adequate hot food storage facilities.</li>
+              <li>All 
+                food establishments that display, prepare, or store potentially 
+                hazardous food shall have adequate refrigerated food storage facilities.</li>
+            </ul></td>
+    <td><strong class='label-red'>Critical</strong></td>
+  </tr>
+  <tr> 
+          <td id="violation-3">3</td>
+          <td> 
+            <ul>
+        <li>All 
+          hot food shall be stored at a temperature of 140&deg;F or higher.</li>
+        <li>All 
+          cold food shall be stored at a temperature of 40&deg;F or less.</li>
+      </ul></td>
+    <td><strong class='label-red'>Critical</strong></td>
+  </tr>
+  <tr> 
+    <td id="violation-4">4</td>
+          <td> 
+            All 
+        food shall be protected from contamination and the elements, and so shall 
+        all food equipment, containers, utensils, food contact surfaces and devices, 
+        andehicles.</td>
+    <td><strong class='label-red'>Critical</strong></td>
+  </tr>
+  <tr> 
+    <td id="violation-5">5</td>
+          <td> 
+            No 
+        person affected with or carrying any disease in a communicable form or 
+        afflicted with boils, infected wounds, sores, acute respiratory infection, 
+        or intestinal disorder shall work in any area of a food establishment 
+        in any capacity where there is a likelihood of that person contaminating 
+        food or food contact surfaces.</td>
+    <td><strong class='label-red'>Critical</strong></td>
+  </tr>
+  <tr> 
+    <td id="violation-6">6</td>
+          <td> 
+            All 
+        employees who handle food shall wash their hands as often as necessary 
+        to maintain a high degree of personal cleanliness and should conform to 
+        hygienic practices prescribed by the Board of Health.</td>
+    <td><strong class='label-red'>Critical</strong></td>
+  </tr>
+  <tr> 
+    <td id="violation-7">7</td>
+          <td> 
+            Hand 
+        washing of all tableware and drinking utensils shall be accomplished by 
+        the use of warm water at a temperature of 110&deg;F to 120&deg;F containing an 
+        adequate amount of detergent effective to remove grease and solids.</td>
+    <td><strong class='label-red'>Critical</strong></td>
+  </tr>
+  <tr> 
+    <td id="violation-8">8</td>
+          <td> 
+            Equipment 
+        and utensils should get proper exposure to the sanitizing solution during 
+        the rinse cycle.&nbsp; Bactericidal treatment shall consist 
+        of exposure of all dish and utensil surfaces to a rinse of clean water 
+        at a temperature of not less than 180&deg;F.</td>
+    <td><strong class='label-red'>Critical</strong></td>
+  </tr>
+  <tr> 
+    <td id="violation-9">9</td>
+          <td> 
+            All 
+        food establishments shall be provided with an adequate supply of hot and 
+        cold water under pressure properly connected to the city water supply.</td>
+    <td><strong class='label-red'>Critical</strong></td>
+  </tr>
+  <tr> 
+    <td id="violation-10">10</td>
+          <td> 
+            In 
+        food establishments, there shall be adequate sewage and waste water disposal 
+        facilities that comply with all the requirements of the plumbing section 
+        of the Municipal Code of Chicago.</td>
+    <td><strong class='label-red'>Critical</strong></td>
+  </tr>
+  <tr> 
+    <td id="violation-11">11</td>
+          <td> 
+            Adequate 
+        and convenient toilet facilities shall be provided.&nbsp; They should 
+        be properly designed, maintained, and accessible to employees at all times.</td>
+    <td><strong class='label-red'>Critical</strong></td>
+  </tr>
+  <tr> 
+    <td id="violation-12">12</td>
+          <td> 
+            Adequate 
+        and convenient hand washing facilities shall be provided for all employees.</td>
+    <td><strong class='label-red'>Critical</strong></td>
+  </tr>
+  <tr> 
+    <td id="violation-13">13</td>
+          <td> 
+            All 
+        necessary control measures shall be used to effectively minimize or eliminate 
+        the presence of rodents, roaches, and otherermin/insect infestations.</td>
+    <td><strong class='label-red'>Critical</strong></td>
+  </tr>
+  <tr> 
+    <td id="violation-14">14</td>
+          <td> 
+            A 
+        separate and distinct offense shall be deemed to have been committed for 
+        each Seriousiolation that is not corrected upon re-inspection by the 
+        health authority.</td>
+    <td><strong class='label-red'>Critical</strong></td>
+  </tr>
+  <tr> 
+    <td id="violation-15">15</td>
+          <td> 
+            Food 
+        once served to a consumer shall not be re-served, with the exception of 
+        packaged food remaining in its original, unopened package.</td>
+    <td><strong class='label-yellow'>Serious</strong></td>
+  </tr>
+  <tr> 
+    <td id="violation-16">16</td>
+          <td> 
+            All 
+        food should be properly protected from contamination during storage, preparation, 
+        display, service, and transportation.</td>
+    <td><strong class='label-yellow'>Serious</strong></td>
+  </tr>
+  <tr> 
+    <td id="violation-17">17</td>
+          <td> 
+            Thawing 
+        frozen food for further processing shall be accomplished by storage in 
+        a refrigerator at 40&deg;F or less, or by other approved method.</td>
+    <td><strong class='label-yellow'>Serious</strong></td>
+  </tr>
+  <tr> 
+    <td id="violation-18">18</td>
+          <td> 
+            All 
+        necessary control measures shall be used to effectively minimize or eliminate 
+        the presence of rodents, roaches, and otherermin and insects on the 
+        premises of all food establishments, in food-transportingehicles, and 
+        inending machines.<i></i></td>
+    <td><strong class='label-yellow'>Serious</strong></td>
+  </tr>
+  <tr> 
+    <td id="violation-19">19</td>
+          <td> 
+            The 
+        area outside of the establishment used for the storage of garbage shall 
+        be clean at all times and shall not constitute a nuisance.</td>
+    <td><strong class='label-yellow'>Serious</strong></td>
+  </tr>
+  <tr> 
+    <td id="violation-20">20</td>
+          <td> 
+            All 
+        garbage and rubbish containing food wastes shall, prior to disposal, be 
+        stored in metal containers with tight fitting lids and shall be kept covered 
+        except when opened for the disposal or removal of garbage.</td>
+    <td><strong class='label-yellow'>Serious</strong></td>
+  </tr>
+  <tr> 
+    <td id="violation-21">21</td>
+          <td> 
+            A 
+        certified food service manager must be present in all establishments at 
+        which potentially hazardous food is prepared or served.</td>
+    <td><strong class='label-yellow'>Serious</strong></td>
+  </tr>
+  <tr> 
+    <td id="violation-22">22</td>
+          <td> 
+            All 
+        dishwashing machines shall maintain proper water pressure and must be 
+        provided with suitable thermometers, chemical test kits, and gauge cocks.</td>
+    <td><strong class='label-yellow'>Serious</strong></td>
+  </tr>
+  <tr> 
+    <td id="violation-23">23</td>
+          <td> 
+            Dishes 
+        and other utensils shall be rinsed or scraped to remove gross food particles 
+        and other soil before washing.</td>
+    <td><strong class='label-yellow'>Serious</strong></td>
+  </tr>
+  <tr> 
+    <td id="violation-24">24</td>
+          <td> 
+            All 
+        dishwashing machines must be of a type that complies with all requirements 
+        of the plumbing section of the Municipal Code of Chicago and Rules and 
+        Regulation of the Board of Health.</td>
+    <td><strong class='label-yellow'>Serious</strong></td>
+  </tr>
+  <tr> 
+    <td id="violation-25">25</td>
+          <td> 
+            Only 
+        such poisonous and toxic materials as are required to maintain sanitary 
+        conditions may be used in food establishments and they shall not be used 
+        in any hazardous manner.</td>
+    <td><strong class='label-yellow'>Serious</strong></td>
+  </tr>
+  <tr> 
+    <td id="violation-26">26</td>
+          <td> 
+            When 
+        toilet and lavatory facilities are provided for the patrons of food establishments, 
+        such facilities shall be adequate in number, convenient, accessible, properly 
+        designed, and installed according to the municipal code.</td>
+    <td><strong class='label-yellow'>Serious</strong></td>
+  </tr>
+  <tr> 
+    <td id="violation-27">27</td>
+          <td> 
+            In 
+        all food establishments, toilet facilities shall be kept clean and in 
+        good repair and shall include an adequate supply of hot and cold or tempered 
+        water, soap, and approved sanitary towels or other approved hand-drying 
+        devices.</td>
+    <td><strong class='label-yellow'>Serious</strong></td>
+  </tr>
+  <tr> 
+    <td id="violation-28">28</td>
+          <td> 
+            One 
+        copy of the Food Inspection Report Summary must be displayed andisible 
+        to all customers.</td>
+    <td><strong class='label-yellow'>Serious</strong></td>
+  </tr>
+  <tr> 
+    <td id="violation-29">29</td>
+          <td> 
+            A 
+        separate and distinct offense shall be deemed to have been committed for 
+        each Minoriolation that is not corrected upon re-inspection by the health 
+        authority.</td>
+    <td><strong class='label-yellow'>Serious</strong></td>
+  </tr>
+  <tr> 
+          
+    <td id="violation-30">30</td>
+          <td> 
+            <ul>
+              <li>All 
+                food not stored in the original container shall be stored in properly 
+                labeled containers.</li>
+              <li>The 
+                licensee shall inform the public in writing of the Chicago Department 
+                of Public Health’s Consumer Advisory relating to consuming raw 
+                and undercooked animal products.</li>
+            </ul></td>
+    <td><strong class='label-green'>Minor</strong></td>
+  </tr>
+  <tr> 
+    <td id="violation-31">31</td>
+          <td> 
+            Containers 
+        and utensils shall be inverted, covered, or otherwise protected from contamination 
+        until used.&nbsp; All single-service drinking straws and containers shall 
+        be discarded immediately after use.</td>
+    <td><strong class='label-green'>Minor</strong></td>
+  </tr>
+  <tr> 
+    <td id="violation-32">32</td>
+          <td> 
+            All 
+        food and non-food contact equipment and utensils shall be smooth, easily 
+        cleanable, and durable, and shall be in good repair.</td>
+    <td><strong class='label-green'>Minor</strong></td>
+  </tr>
+  <tr> 
+          
+    <td id="violation-33"> 
+     33</td>
+          <td> 
+            <ul>
+              <li>All 
+                utensils shall be thoroughly cleaned and sanitized after each 
+                usage.</li>
+              <li>All 
+                food and non-food contact surfaces of equipment and all food storage 
+                utensils shall be thoroughly cleaned and sanitized daily.</li>
+            </ul></td>
+    <td><strong class='label-green'>Minor</strong></td>
+  </tr>
+  <tr> 
+          <td id="violation-34"> 
+           34</td>
+          <td> 
+            The 
+        floors shall be constructed per code, be smooth and easily cleaned, and 
+        be kept clean and in good repair.</td>
+    <td><strong class='label-green'>Minor</strong></td>
+  </tr>
+  <tr> 
+          <td id="violation-35"> 
+           35</td>
+          <td> 
+            <ul>
+        <li>The 
+          walls and ceilings shall be in good repair and easily cleaned.</li>
+        <li>Use 
+          dustless cleaning methods.</li>
+      </ul></td>
+    <td><strong class='label-green'>Minor</strong></td>
+  </tr>
+  <tr> 
+          
+    <td id="violation-36"> 
+     36</td>
+          <td> 
+            <ul>
+        <li>All 
+          rooms in which food or drink is prepared, or in which utensils are washed, 
+          shall be lighted so that a minimum of 50-foot candles of light is available 
+          on all work surfaces.</li>
+        <li>Shielding 
+          to protect against broken glass falling into food shall be provided 
+          for all artificial lighting sources in preparation, service, and display 
+          facilities.</li>
+      </ul></td>
+    <td><strong class='label-green'>Minor</strong></td>
+  </tr>
+  <tr> 
+          
+    <td id="violation-37"> 
+     37</td>
+          <td> 
+            <ul>
+        <li>Toilet 
+          rooms shall be completely enclosed and shall beented to the outside 
+          air or mechanicallyentilated.</li>
+        <li>None 
+          of the operations connected with food establishments shall be conducted 
+          in any room used as living or sleeping quarters.</li>
+      </ul></td>
+    <td><strong class='label-green'>Minor</strong></td>
+  </tr>
+  <tr> 
+          
+    <td id="violation-38"> 
+     38</td>
+          <td> 
+            <ul>
+        <li>The 
+          flow of air discharged from kitchen fans shall always be through a duct 
+          to a point above the roofline.</li>
+        <li>All 
+          plumbing fixtures, such as toilets, sinks, washbasins, etc., must be 
+          adequately trapped,ented, and re-vented and properly connected to 
+          the sewer in accordance with the plumbing chapter of the Municipal Code 
+          of Chicago and the Rules and Regulations of the Board of Health.</li>
+      </ul></td>
+    <td><strong class='label-green'>Minor</strong></td>
+  </tr>
+  <tr> 
+    <td id="violation-39">39</td>
+          <td> 
+            Soiled 
+        and clean linens, coats, and aprons shall be properly stored.</td>
+    <td><strong class='label-green'>Minor</strong></td>
+  </tr>
+  <tr> 
+    <td id="violation-40">40</td>
+          <td> 
+            All 
+        food establishments that display, prepare, or store potentially hazardous foods shall have calibrated metal stem thermometers, provided and conspicuous, 
+        for refrigerated and hot food units.</td>
+    <td><strong class='label-green'>Minor</strong></td>
+  </tr>
+  <tr> 
+          
+    <td id="violation-41"> 
+     41</td>
+          <td> 
+            <ul>
+        <li>All 
+          parts of the food establishment and all parts of the property used in 
+          connection with the operation of the establishment shall be kept neat 
+          and clean and should not produce any offensive odors.</li>
+        <li>Cleaning 
+          equipment shall be properly stored away from food, utensils, equipment, 
+          and clean linens.</li>
+      </ul></td>
+    <td><strong class='label-green'>Minor</strong></td>
+  </tr>
+  <tr> 
+          
+    <td id="violation-42"> 
+     42</td>
+          <td> 
+            <ul>
+        <li>Only 
+          employees must dispense ice for consumer use with scoops, tongs, or 
+          other ice dispensing utensils. Customers must dispense ice through appropriate 
+          automatic self-service ice dispensing equipment.</li>
+        <li>All employees shall be required to 
+          use effective hair restraints to confine hair.</li>
+        <li>All 
+          employees must wear garments that are clean and of washable character 
+          and nature.</li>
+      </ul></td>
+    <td><strong class='label-green'>Minor</strong></td>
+  </tr>
+  <tr> 
+    <td id="violation-43">43</td>
+          <td> 
+            Between 
+        uses and during storage ice dispensing utensils and ice receptacles shall 
+        be stored in a way that protects them from contamination.</td>
+    <td><strong class='label-green'>Minor</strong></td>
+  </tr>
+  <tr> 
+    <td id="violation-44">44</td>
+          <td> 
+            The 
+        traffic of unnecessary persons through the food preparation and the utensil 
+        washing areas is prohibited.</td>
+    <td><strong class='label-green'>Minor</strong></td>
+  </tr>
+  <tr> 
+          <td id="violation-70"> 
+           70</td>
+          <td> 
+            Smoking 
+        shall be prohibited in all public places except in designated smoking 
+        areas.</td>
+    <td><strong class='label-green'>Minor</strong></td>
+  </tr>
+</table>
+				
+		<hr />
+		<p class='mute'>A project by <a href='http://derekeder.com'>Derek Eder</a></p>	
+		</div>
+	</div>
+</body>
+</html>
