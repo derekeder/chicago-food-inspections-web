@@ -25,9 +25,9 @@ function initialize() {
   $( "#resultCount" ).html("");
 
 	geocoder = new google.maps.Geocoder();
-  var chicago = new google.maps.LatLng(41.850033, -87.6500523);
+  var chicago = new google.maps.LatLng(41.889667, -87.701446);
   var myOptions = {
-    zoom: 11,
+    zoom: 12,
     center: chicago,
     mapTypeId: google.maps.MapTypeId.ROADMAP
   };
@@ -35,9 +35,9 @@ function initialize() {
 
   $("#ddlRadius").val("805");
   
-  $("#cbResult1").attr("checked", ""); 
-  $("#cbResult2").attr("checked", ""); 
-  $("#cbResult3").attr("checked", "checked"); //default view shows only failed
+  $("#cbResult1").attr("checked", "checked"); 
+  $("#cbResult2").attr("checked", "checked"); 
+  $("#cbResult3").attr("checked", "checked");
   $("#cbResult4").attr("checked", "");
   
   searchrecords = null;
@@ -50,7 +50,7 @@ function initializeDateSlider() {
 	var minDate = new Date(2010, 1-1, 1);
     var maxDate = new Date();
     var initialStartDate = new Date();
-    initialStartDate.setDate(maxDate.getDate() - 90);
+    initialStartDate.setDate(maxDate.getDate() - 120);
     $('#minDate').html($.datepicker.formatDate('M yy', minDate));
     $('#maxDate').html($.datepicker.formatDate('M yy', maxDate));
     
@@ -241,6 +241,41 @@ function displaySearchCount(response) {
       $( "#resultCount" ).html(addCommas(numRows) + " " + name + " found");
     });
   $( "#resultCount" ).fadeIn();
+}
+
+function getLeaderboard() {
+	 var sql = "SELECT 'AKA Name', 'Facility Type', 'Address', 'Inspection Date' ";
+	 sql += "FROM " + fusionTableId + " ORDER BY 'Inspection Date' ASC LIMIT 100 ";
+	 
+	  //set the callback function
+	  //console.log(getFTQuery(sql));
+	  getFTQuery(sql).send(displayLeaderboard);
+}
+
+function displayLeaderboard(response) {
+  var table = "";
+  numRows = response.getDataTable().getNumberOfRows();
+  
+  var count = 1;
+  if (numRows > 0) {
+    for(i = 0; i < numRows; i++) {
+      var dateInspected = Date.parse(response.getDataTable().getValue(i, 3));
+      var daysSince = parseInt((new Date() - dateInspected) / (1000 * 60 * 60 * 24));
+    
+    	table += "<tr>";
+    	table += "<td>" + count + "</td>";
+      table += "<td><h3>" + response.getDataTable().getValue(i, 0) + "</h3></td>";
+      table += "<td>" + response.getDataTable().getValue(i, 1) + "</td>";
+      table += "<td>" + response.getDataTable().getValue(i, 2) + "</td>";
+      table += "<td>" + daysSince + " days <br /> <span class='mute'>" + $.format.date(new Date(dateInspected), "MMM dd, yyyy") + "</span></td>";
+      table += "</tr>";
+      
+      count++;
+    }
+    
+    //console.log(table);
+    $("#leaderboard-content").html(table);
+  }
 }
 
 function addCommas(nStr) {
