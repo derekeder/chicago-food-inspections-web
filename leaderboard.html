@@ -3,15 +3,20 @@
 <head>
 	<title>Leaderboard - Chicago Food Inspections</title>
 	<link href='styles/map.css' media='all' rel='stylesheet' type='text/css' /> 
-	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script> 
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script> 
 	<script src="/source/analytics_lib.js" type="text/javascript"></script>
 	<script type="text/javascript" src="http://www.google.com/jsapi"></script>
 	<script src="source/jquery.dateFormat-1.0.js" type="text/javascript"></script>
-  <script src="source/maps_lib.js" type="text/javascript"></script>
+  <script src="source/maps_lib.js?1" type="text/javascript"></script>
+  
+  <script type="text/javascript" src="http://oauth.googlecode.com/svn/code/javascript/oauth.js"></script>
+  <script type="text/javascript" src="http://oauth.googlecode.com/svn/code/javascript/sha1.js"></script>
+  <script src="source/yelp-api.js?2" type="text/javascript"></script>
+  
 	<script type="text/javascript">
 	
 	jQuery(document).ready(function() {
-    getLeaderboard();
+    //getLeaderboard();
   });
 
 </script>
@@ -31,15 +36,15 @@
 			<hr />
 			<h1>Leaderboard</h1>
 			
-			<p>Facilities that have gone the longest since being inspected.</p>
+			<p>Restaurants that have gone the longest since being inspected.</p>
 			<table class='data'>
 		  <thead>
         <tr> 
           <th>#</th>
           <th>Name</th>
-          <th>Type</th>
           <th>Address</th>
           <th>Date since last inspection</th>
+          <th>Last inspection result</th>
         </tr>
       </thead>
       <tbody id='leaderboard-content'>

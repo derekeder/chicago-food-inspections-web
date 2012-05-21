@@ -244,8 +244,10 @@ function displaySearchCount(response) {
 }
 
 function getLeaderboard() {
-	 var sql = "SELECT 'AKA Name', 'Facility Type', 'Address', 'Inspection Date' ";
-	 sql += "FROM " + fusionTableId + " ORDER BY 'Inspection Date' ASC LIMIT 100 ";
+	 var sql = "SELECT 'License #', 'AKA Name', 'Address', 'Inspection Date', 'Results' ";
+	 sql += "FROM " + fusionTableId + " WHERE 'Facility Type' = 'Restaurant' AND 'Risk' = 'Risk 1 (High)' ";
+	 sql += "AND Results <= 3 ";
+	 sql += "ORDER BY 'Inspection Date' ASC LIMIT 100 ";
 	 
 	  //set the callback function
 	  //console.log(getFTQuery(sql));
@@ -259,16 +261,27 @@ function displayLeaderboard(response) {
   var count = 1;
   if (numRows > 0) {
     for(i = 0; i < numRows; i++) {
+      var license = response.getDataTable().getValue(i, 0);
+      var name = response.getDataTable().getValue(i, 1);
+      var address = response.getDataTable().getValue(i, 2);
       var dateInspected = Date.parse(response.getDataTable().getValue(i, 3));
+      var results = response.getDataTable().getValue(i, 4);
+      if (results == "1") results = "<span class='label-green'>Passed</span>";
+      else if (results == "2") results = "<span class='label-yellow'>Passed w/ conditions</span>";
+      else if (results == "3") results = "<span class='label-red'>Failed</span>";
+      
       var daysSince = parseInt((new Date() - dateInspected) / (1000 * 60 * 60 * 24));
-    
+      
     	table += "<tr>";
     	table += "<td>" + count + "</td>";
-      table += "<td><h3>" + response.getDataTable().getValue(i, 0) + "</h3></td>";
-      table += "<td>" + response.getDataTable().getValue(i, 1) + "</td>";
-      table += "<td>" + response.getDataTable().getValue(i, 2) + "</td>";
+      table += "<td><h3><a href='http://www.yelp.com/search?find_desc=" + name + "&find_loc=" + address + "&ns=1'>" + name + "</a></h3></td>";
+      table += "<td>" + address + "</td>";
       table += "<td>" + daysSince + " days <br /> <span class='mute'>" + $.format.date(new Date(dateInspected), "MMM dd, yyyy") + "</span></td>";
+      table += "<td>" + results + "</td>";
+      table += "<td id='closed-" + license + "'></td>";
       table += "</tr>";
+      
+      //var yelp = new YelpApi.Search(name, address, license);
       
       count++;
     }
